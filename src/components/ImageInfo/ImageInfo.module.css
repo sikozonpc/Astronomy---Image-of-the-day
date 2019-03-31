@@ -1,0 +1,22 @@
+.Bar {
+    position: relative;
+    width: 100%;
+    min-height: 20vh;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #333;
+    border-top: 1px solid #fff;
+    background-color: rgba(17, 17, 17, 0.699);
+    color: #fff;
+
+    transition: 0.5s all ease;
+}
+    .Desc {
+        padding: 30px;
+        font-size: 15px;
+        width: 95%;
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+    }

@@ -6,13 +6,13 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import Hd from '@material-ui/icons/Hd';
+import Favorite from '@material-ui/icons/Favorite';
 import classes from "./LeftDrawer.module.css";
-import ToggleButton from "../ToggleButton/ToggleButton"
+import Dashboard from '@material-ui/icons/Dashboard';
+import Person from '@material-ui/icons/Person';
+import ListItemText from '@material-ui/core/ListItemText';
+import Switch from '@material-ui/core/Switch';
 
 const styles = {
   list: {
@@ -24,21 +24,37 @@ const styles = {
 };
 
 const leftDrawer = (props) => {
-    // Reference the ToggleButton.js.
-    const hdImagesSwitchState = props.isHD ? 0 : 1;
 
     const sideList = (
       <div className={classes.list}>
         <List>
-            <ListItem button>
-                <ToggleButton
-                    type="normal"
-                    clicked={props.hdImages}
-                    label="HD Images"
-                    icon={<Hd/>}
-                    switch={hdImagesSwitchState}
-                />
-            </ListItem>
+          <ListItem >
+          <h3>APOD</h3>
+          </ListItem>
+          <Divider />
+          <ListItem button>
+            <Hd />
+            <ListItemText primary="Hd Images"/>
+            <Switch
+                checked={props.isHD}
+                onChange={props.changeResolution}
+                value={props.isHD}
+              />
+          </ListItem>
+          <ListItem button>
+            {/* NOTE: when using router see: https://material-ui.com/guides/composition/#react-routers */}
+            <Favorite/>
+            <ListItemText primary="Favorites"/>
+          </ListItem>
+          <ListItem button>
+            <Dashboard/>
+            <ListItemText primary="Change to grid"/>
+          </ListItem>
+          <Divider />
+          <ListItem button>
+            <Person/>
+            <ListItemText primary="About"/>
+          </ListItem>
         </List>
         <Divider />
         <List>
